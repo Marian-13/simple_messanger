@@ -10,3 +10,36 @@
 .register-form {
   display: inline;
 }
+
+h1 {
+  text-align: center;
+}
+
+#nav-tools {
+  font-size: large;
+}
+
+#register-span, #login-span {
+  text-decoration: underline;
+}
+
+#register-span:hover, #login-span:hover {
+  background-color: black;
+  color: white;
+}
+
+@-webkit-keyframes blinkable {
+  0%   { background-color: red; }
+  100% { background-color: white; }
+}
+
+@keyframes blinkable {
+  0%   { background-color: red; }
+  100% { background-color: white; }
+}
+
+#login-error {
+  color: red;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}

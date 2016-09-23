@@ -1,17 +1,24 @@
-<h1>Home Page</h1>
+<h1>Simple Messanger Home Page</h1>
 
-<div>
-Register:
-<%= button_to "Sign up", { controller: 'users', action: 'new' },
-  method: :get, form_class: 'register-form' %>
-<%= link_to 'Sign up', new_user_path %>
+<div class="std-div">
+  <h2 id="register-h2">Register</h2>
+  <!-- TODO popup registration form -->
+  <%= button_to "Sign Up", { controller: 'users', action: 'new' },
+    method: :get, form_class: 'register-form' %>
 </div>
 
-<div>
-  <h2>Login</h2>
+<div class="std-div">
+  <h2 id="login-h2">Login</h2>
   <%= form_tag '/login' do %>
-    Email: <%= text_field_tag :email %>
-    Password: <%= password_field_tag :password %>
-    <%= submit_tag "Submit" %>
+    <% if flash[:notice] %>
+      <div id="login-error">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    Email:<br />
+    <%= text_field_tag :email, flash[:email] || '' %><br />
+    Password:<br />
+    <%= password_field_tag :password %><br /><br />
+    <%= submit_tag "Submit" %><br />
   <% end %>
 </div>
