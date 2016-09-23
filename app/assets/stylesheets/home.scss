@@ -1,0 +1,12 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// button_to creates an HTML <form> , and that form contains an HTML <div>.
+// Both of these are normally block elements, which will appear on the next
+// line. To place them inline, it is nesessaty to add a CSS property dislay
+// with inline value
+
+.register-form {
+  display: inline;
+}
