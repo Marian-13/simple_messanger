@@ -1,0 +1,11 @@
+<%= render 'search_tools' %>
+
+<div class="std-div">
+  <% # TODO less logic in view %>
+  <div class="user-info">
+    <h3>
+      No user with the specified <%= params[:sought_user][:filter] %> found.
+      Try again with another search filter.
+    </h3>
+  </div>
+</div>

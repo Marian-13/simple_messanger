@@ -1,10 +1,22 @@
 <h1>TODO CHAT ROOM</h1>
 
-
 <div id="chat-container" class="std-div">
-  <div id="chat-buttons" class="std-div">
-    <button type="button" class="send-msg-btn" onclick="sendMessage()">Send Message</button>
-  </div>
-</div>
+  <% # /foo1 and /foo2 %>
+  <script>faye('<%= session[:sender_channel] %>', '<%= session[:receiver_channel] %>');</script>
 
-<%= home_url %>
+  <div id="chat-search" class="std-div">
+    <%= button_to 'Search New Contact', { controller: :chat, action: :new }, method: :get %>
+  </div>
+
+  <div id="chat-place" class="std-div">
+
+  </div>
+
+  <div id="chat-buttons" class="std-div">
+    <input id="chat-message-input" type="text"></input>
+    <button type="button" class="send-msg-btn"
+        onclick="publish()">Send Message
+    </button>
+  </div>
+
+</div>

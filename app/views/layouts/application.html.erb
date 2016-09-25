@@ -15,7 +15,7 @@
         <% if current_user %>
           Signed in as <%= current_user.name %> |
           <%= link_to "Logout", { controller: 'sessions', action: 'destroy' } %>
-      ur  <% else %>
+        <% else %>
           <span onclick="performBlink('login-h2')" id="login-span">Login</span> |
           <span onclick="performBlink('register-h2')" id="register-span">Sign Up</span>
         <% end %>
@@ -26,5 +26,3 @@
     </div>
   </body>
 </html>
-
-<!-- onclick: 'blink()' -->

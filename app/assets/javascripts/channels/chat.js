@@ -1,23 +1,41 @@
 // TODO faye
-//
-// function sendMessage() {
-//
-// }
 
-// var url = 'http://' + document.location.host + '/faye';
-// console.log(url);
-// alert(url);
-// var client = new Faye.Client(url);
-//
-// var subscription = client.subscribe('/foo', function(message) {
-//   // handle message
-// });
-//
-// //
-// var publication = client.publish('/foo', {text: 'Hi there'});
-//
-// publication.then(function() {
-//   console.log('Message received by server!');
-// }, function(error) {
-//   console.log('There was a problem: ' + error.message);
-// });
+function faye(senderChannel, receiverChannel) {
+  if (!senderChannel && !receiverChannel) { return; }
+
+  // Global
+  url = 'http://' + document.location.host + '/faye';
+  client = new Faye.Client(url);
+
+  subscription = client.subscribe(senderChannel, function(message) {
+    addReceivedMessage(message);
+  });
+
+  publish = function() {
+    var message = document.getElementById("chat-message-input").value;
+    addSentMessage(message);
+    var publication = client.publish(receiverChannel, message);
+
+    publication.then(function() {
+      console.log('Message received by server!');
+    }, function(error) {
+      console.log('There was a problem: ' + error.message);
+    });
+  }
+
+  // Not global
+  function addSentMessage(message) {
+    addMessage(message, "std-div sent-message")
+  }
+
+  function addReceivedMessage(message) {
+    addMessage(message, "std-div received-message");
+  }
+
+  function addMessage(message, className) {
+    var div = document.createElement('div');
+    div.className = className;
+    div.innerHTML = message;
+    document.getElementById('chat-place').appendChild(div);
+  }
+}
