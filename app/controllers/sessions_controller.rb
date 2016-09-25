@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     else
     # If user's login doesn't work, send them back to the login form.
       flash[:notice] = 'Incorrect e-mail or password or all together.'
-      flash[:email] = @user.email
+      flash[:email] = @user.email if @user
       redirect_to home_path
     end
   end

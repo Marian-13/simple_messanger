@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src=<%= "#{home_url}faye/client.js" %> ></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -14,13 +15,15 @@
         <% if current_user %>
           Signed in as <%= current_user.name %> |
           <%= link_to "Logout", { controller: 'sessions', action: 'destroy' } %>
-        <% else %>
+      ur  <% else %>
           <span onclick="performBlink('login-h2')" id="login-span">Login</span> |
           <span onclick="performBlink('register-h2')" id="register-span">Sign Up</span>
         <% end %>
       </div>
     </div>
-    <%= yield %>
+    <div>
+      <%= yield %>
+    </div>
   </body>
 </html>
 
