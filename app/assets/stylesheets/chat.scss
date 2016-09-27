@@ -1,3 +1,44 @@
 // Place all the styles related to the Chat controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#chat-container {
+  max-width: 500px;
+  max-height: 500px;
+  margin: auto;
+}
+
+.chat-search {
+  text-align: right;
+}
+
+#search-result {
+  color: green;
+}
+
+#chat-buttons {
+  // float: right;
+  text-align: right;
+}
+
+#chat-place {
+
+}
+
+.chat-message {
+
+}
+
+#chat-message-input {
+
+}
+
+.received-message {
+  color: blue;
+  text-align: left;
+}
+
+.sent-message {
+  color: darkblue;
+  text-align: right;
+}

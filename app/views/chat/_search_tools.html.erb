@@ -1,0 +1,9 @@
+<h1>Search User</h1>
+
+<div class="std-div">
+  <%= form_tag chat_search_path do %>
+    <%= text_field_tag :search, 'Enter your search query here..s.', class: 'search-field' %>
+    <%= select("sought_user", "filter", ['name', 'email'], { include_blank: false }) %>
+    <%= submit_tag "Search" %><br />
+  <% end %>
+</div>

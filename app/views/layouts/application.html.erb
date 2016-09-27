@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src=<%= "#{home_url}faye/client.js" %> ></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -20,8 +21,8 @@
         <% end %>
       </div>
     </div>
-    <%= yield %>
+    <div>
+      <%= yield %>
+    </div>
   </body>
 </html>
-
-<!-- onclick: 'blink()' -->
