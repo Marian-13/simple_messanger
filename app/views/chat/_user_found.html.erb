@@ -1,0 +1,18 @@
+<div class="found-user-info">
+
+  <h3>One user with the specified <%= params[:sought_user][:filter] %> was found.</h3>
+
+  Name:  <%= @user.name %>  </br>
+  Email: <%= @user.email %> </br>
+
+  <button type="button" onclick="getFoundUserChannel(this);">Get Channel</button>
+  <button type="button" onclick="startConversation(this, '<%= @user.channel %>');">
+    Start Conversation
+  </button>
+  <button type="button">Add to Contacts</button>
+
+  <% # TODO More clever channel name %>
+  <div class="found-user-channel">
+    /<%= @user.name %>
+  </div>
+</div>

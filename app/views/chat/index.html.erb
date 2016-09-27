@@ -1,8 +1,26 @@
-<h1>TODO CHAT ROOM</h1>
+<h1>CHAT</h1>
 
-<div id="chat-container" class="std-div">
+<div id="container">
+
+  <div id="search-container">
+    <%= render 'search_tools' %>
+  </div>
+
+  <div id="chat-container">
+
+  </div>
+
+  <div id="sending-container">
+    <input id="message-input" type="text"></input>
+    <button type="button" onclick="publish();">Send Message</button>
+  </div>
+
+</div>
+
+
+<!-- <div id="chat-container" class="std-div">
   <% # /foo1 and /foo2 %>
-  <script>faye('<%= session[:sender_channel] %>', '<%= session[:receiver_channel] %>');</script>
+  <script>faye('<%= session[:sender_channel] %>', '<%= params[:channel] %>');</script>
 
   <div id="chat-search" class="std-div">
     <%= button_to 'Search New Contact', { controller: :chat, action: :new }, method: :get %>
@@ -19,4 +37,4 @@
     </button>
   </div>
 
-</div>
+</div> -->

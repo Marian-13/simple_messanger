@@ -2,43 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#chat-container {
+#container {
   max-width: 500px;
-  max-height: 500px;
   margin: auto;
+  border: 1px solid black; // TODO not temporary
 }
 
-.chat-search {
-  text-align: right;
+#search-container {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black; // TODO not temporary
 }
 
-#search-result {
-  color: green;
-}
-
-#chat-buttons {
-  // float: right;
-  text-align: right;
-}
-
-#chat-place {
+#search-tools {
 
 }
 
-.chat-message {
+.found-user-info {
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid black; // TODO not temporary
+}
+
+.found-user-channel {
+  display: none;
+}
+
+#user-not-found {
 
 }
 
-#chat-message-input {
-
+#chat-container {
+  height: 300px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black; // TODO not temporary
 }
 
 .received-message {
+  border: 1px solid black; // TODO not temporary
   color: blue;
   text-align: left;
 }
 
 .sent-message {
+  border: 1px solid black; // TODO not temporary
   color: darkblue;
   text-align: right;
+}
+
+#sending-container {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black; // TODO not temporary
+}
+
+#message-input {
+  
 }

@@ -1,3 +1,24 @@
+function startConversation(node, senderChannel) {
+  var receiverChannel = getFoundUserChannel(node);
+  node = document.getElementById('chat-container');
+  h3 = document.createElement('h3');
+  h3.innerHTML = 'Conversation srarted';
+  node.appendChild(h3);
+  faye(senderChannel, receiverChannel);
+}
+
+function getFoundUserChannel(node) {
+  // Use lastElementChild instead of lastChild
+  // http://www.w3schools.com/jsref/prop_node_lastchild.asp
+  var channel = node.parentNode.lastElementChild.innerHTML;
+  // TODO more clever channel name
+  // channel = channel.split('.').join("").toLowerCase();
+  channel = '/user01'
+
+  return channel;
+}
+
+
 // TODO faye
 
 function faye(senderChannel, receiverChannel) {
@@ -8,12 +29,21 @@ function faye(senderChannel, receiverChannel) {
   client = new Faye.Client(url);
 
   subscription = client.subscribe(senderChannel, function(message) {
-    addReceivedMessage(message);
+    if (message.text) {
+      addReceivedMessageText(message.text);
+    }
+
+    if (message) {
+
+    }
   });
 
   publish = function() {
-    var message = document.getElementById("chat-message-input").value;
-    addSentMessage(message);
+    var message = {
+      text: document.getElementById("message-input").value
+    }
+
+    addSentMessageText(message.text);
     var publication = client.publish(receiverChannel, message);
 
     publication.then(function() {
@@ -24,18 +54,18 @@ function faye(senderChannel, receiverChannel) {
   }
 
   // Not global
-  function addSentMessage(message) {
-    addMessage(message, "std-div sent-message")
+  function addSentMessageText(messageText) {
+    addMessageText(messageText, "sent-message")
   }
 
-  function addReceivedMessage(message) {
-    addMessage(message, "std-div received-message");
+  function addReceivedMessageText(messageText) {
+    addMessageText(messageText, "received-message");
   }
 
-  function addMessage(message, className) {
+  function addMessageText(messageText, className) {
     var div = document.createElement('div');
     div.className = className;
-    div.innerHTML = message;
-    document.getElementById('chat-place').appendChild(div);
+    div.innerHTML = messageText;
+    document.getElementById('chat-container').appendChild(div);
   }
 }
